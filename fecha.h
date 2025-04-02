@@ -17,6 +17,7 @@ Fecha ingresarFecha();
 bool esFechaValida(const Fecha* fecha);
 int cantDiasMes(int mes, int anio);
 Fecha sumarDiasAfecha(const Fecha* fecha, int dias);
+Fecha restarDiasAfecha(const Fecha* fecha, int dias);
 int ingresarEnteroPositivo(const char* mensaje);
 int _mayorFecha(const Fecha* f1, const Fecha* f2);
 int difFechas(const Fecha* f1, const Fecha* f2);

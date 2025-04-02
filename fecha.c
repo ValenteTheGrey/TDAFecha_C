@@ -55,6 +55,28 @@ Fecha sumarDiasAfecha(const Fecha* fecha, int dias)
     return fechaSumada;
 }
 
+Fecha restarDiasAfecha(const Fecha* fecha, int dias)
+{
+    Fecha fechaFinal = *fecha;
+
+    while(dias > 0) {
+        if (dias >= fechaFinal.dia) {
+            fechaFinal.mes -= 1;
+            if (fechaFinal.mes == 0) {
+                fechaFinal.mes = 12;
+                fechaFinal.anio -= 1;
+            }
+            dias -= fechaFinal.dia;
+            fechaFinal.dia = cantDiasMes(fechaFinal.mes, fechaFinal.anio);
+
+        } else if (dias < fechaFinal.dia) {
+            fechaFinal.dia -= dias;
+            dias -= dias;
+        }
+    }
+    return fechaFinal;
+}
+
 int ingresarEnteroPositivo(const char* mensaje)
 {
     int n;
@@ -63,7 +85,7 @@ int ingresarEnteroPositivo(const char* mensaje)
 
     if(n <= 0)
     {
-        puts("Ingreso no valid\n");
+        puts("Ingreso no valido\n");
         puts(mensaje);
         scanf("%d", &n);
     }
